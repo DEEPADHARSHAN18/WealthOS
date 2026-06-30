@@ -1,50 +1,90 @@
+import Sidebar from "@/components/layout/Sidebar";
+import Navbar from "@/components/layout/Navbar";
+import SummaryCard from "@/components/dashboard/SummaryCard";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      <div className="mx-auto max-w-7xl p-8">
+    <main className="flex min-h-screen bg-zinc-950">
+      {/* Sidebar */}
+      <Sidebar />
 
-        <h1 className="text-5xl font-bold">
-          WealthOS
-        </h1>
+      {/* Main Content */}
+      <div className="flex flex-1 flex-col">
+        {/* Top Navigation */}
+        <Navbar />
 
-        <p className="mt-2 text-gray-400">
-          AI Powered Investment Portfolio
-        </p>
+        {/* Dashboard */}
+        <section className="flex-1 p-8">
+          <h1 className="text-4xl font-bold text-white">
+            Dashboard
+          </h1>
 
-        <div className="grid gap-6 mt-10 md:grid-cols-3">
+          <p className="mt-2 text-zinc-400">
+            Welcome back, Deepak 👋
+          </p>
 
-          <div className="rounded-2xl bg-slate-900 p-6">
-            <h2 className="text-gray-400">
-              Net Worth
-            </h2>
+          {/* Summary Cards */}
+          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <SummaryCard
+              title="Net Worth"
+              value="₹0.00"
+            />
 
-            <p className="text-3xl font-bold mt-2">
-              ₹0
-            </p>
+            <SummaryCard
+              title="Today's P/L"
+              value="₹0.00"
+              change="+0.00%"
+              color="text-green-400"
+            />
+
+            <SummaryCard
+              title="Overall Return"
+              value="0.00%"
+              color="text-blue-400"
+            />
+
+            <SummaryCard
+              title="Assets"
+              value="0"
+            />
           </div>
 
-          <div className="rounded-2xl bg-slate-900 p-6">
-            <h2 className="text-gray-400">
-              Today's P/L
-            </h2>
+          {/* Placeholder Sections */}
+          <div className="mt-8 grid gap-6 xl:grid-cols-3">
+            {/* Portfolio Chart */}
+            <div className="col-span-2 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+              <h2 className="mb-4 text-xl font-semibold text-white">
+                Portfolio Value
+              </h2>
 
-            <p className="text-3xl font-bold text-green-400 mt-2">
-              ₹0
-            </p>
+              <div className="flex h-72 items-center justify-center rounded-xl border border-dashed border-zinc-700 text-zinc-500">
+                Chart Coming Soon 📈
+              </div>
+            </div>
+
+            {/* Asset Allocation */}
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+              <h2 className="mb-4 text-xl font-semibold text-white">
+                Asset Allocation
+              </h2>
+
+              <div className="flex h-72 items-center justify-center rounded-xl border border-dashed border-zinc-700 text-zinc-500">
+                Pie Chart Coming Soon 🥇
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-2xl bg-slate-900 p-6">
-            <h2 className="text-gray-400">
-              Total Return
+          {/* Recent Transactions */}
+          <div className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+            <h2 className="mb-4 text-xl font-semibold text-white">
+              Recent Transactions
             </h2>
 
-            <p className="text-3xl font-bold text-blue-400 mt-2">
-              0%
-            </p>
+            <div className="flex h-56 items-center justify-center rounded-xl border border-dashed border-zinc-700 text-zinc-500">
+              No transactions yet.
+            </div>
           </div>
-
-        </div>
-
+        </section>
       </div>
     </main>
   );
