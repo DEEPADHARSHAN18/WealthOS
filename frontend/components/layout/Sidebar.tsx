@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   LayoutDashboard,
   Briefcase,
@@ -10,14 +11,14 @@ import {
 } from "lucide-react";
 
 const menu = [
-  { name: "Dashboard", icon: LayoutDashboard },
-  { name: "Portfolio", icon: Briefcase },
-  { name: "Gold", icon: Coins },
-  { name: "Stocks", icon: ChartCandlestick },
-  { name: "Mutual Funds", icon: Landmark },
-  { name: "Analytics", icon: BarChart3 },
-  { name: "AI Assistant", icon: Bot },
-  { name: "Settings", icon: Settings },
+  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Portfolio", href: "/portfolio", icon: Briefcase },
+  { name: "Gold", href: "/gold", icon: Coins },
+  { name: "Stocks", href: "/stocks", icon: ChartCandlestick },
+  { name: "Mutual Funds", href: "/mutual-funds", icon: Landmark },
+  { name: "Analytics", href: "/analytics", icon: BarChart3 },
+  { name: "AI Assistant", href: "/assistant", icon: Bot },
+  { name: "Settings", href: "/settings", icon: Settings },
 ];
 
 export default function Sidebar() {
@@ -28,23 +29,24 @@ export default function Sidebar() {
           Wealth<span className="text-blue-500">OS</span>
         </h1>
 
-        <p className="text-zinc-500 text-sm mt-1">
+        <p className="mt-1 text-sm text-zinc-500">
           AI Portfolio Manager
         </p>
       </div>
 
-      <nav className="mt-6 px-3">
+      <nav className="mt-6 px-3 space-y-2">
         {menu.map((item) => {
           const Icon = item.icon;
 
           return (
-            <button
+            <Link
               key={item.name}
-              className="flex items-center gap-4 w-full rounded-xl px-4 py-3 text-zinc-300 hover:bg-zinc-900 hover:text-white transition"
+              href={item.href}
+              className="flex items-center gap-4 rounded-xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-900 hover:text-white"
             >
               <Icon size={20} />
               <span>{item.name}</span>
-            </button>
+            </Link>
           );
         })}
       </nav>
