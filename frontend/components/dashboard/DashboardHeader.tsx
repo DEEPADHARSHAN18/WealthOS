@@ -1,0 +1,13 @@
+export default function DashboardHeader() {
+  return (
+    <>
+      <h1 className="text-4xl font-bold text-white">
+        Dashboard
+      </h1>
+
+      <p className="mt-2 text-zinc-400">
+        Welcome back, Deepak 👋
+      </p>
+    </>
+  );
+}
